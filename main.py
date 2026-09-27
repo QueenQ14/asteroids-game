@@ -40,10 +40,16 @@ def main():
         for u_item in updatable:
             u_item.update(dt)
             for a_item in asteroids:
+                for s_item in shots:
+                    if a_item.collides_with(s_item):
+                        log_event("asteroid_shot")
+                        a_item.kill()
+                        s_item.kill()
                 if a_item.collides_with(player1):
                     log_event("player_hit")
                     print("Game over!")
                     sys.exit()
+                
         
         pygame.display.flip()
         dt = clock.tick(60) / 1000
