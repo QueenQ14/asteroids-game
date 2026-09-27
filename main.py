@@ -43,7 +43,7 @@ def main():
                 for s_item in shots:
                     if a_item.collides_with(s_item):
                         log_event("asteroid_shot")
-                        a_item.kill()
+                        a_item.split()
                         s_item.kill()
                 if a_item.collides_with(player1):
                     log_event("player_hit")
